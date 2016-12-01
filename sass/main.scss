@@ -1,1 +1,255 @@
-// main SASS file
+// my sass file
+@import "variables";
+@import "mixins";
+// **************** DEFAULTS ****************
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:after,
+    &:before {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+}
+
+html {
+    font-size: 16px;
+    font-family: $font-sans-serif; // default for whole page  
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $font-serif; //using serif  font for headings
+}
+
+ul {
+    list-style: none;
+}
+
+// ************* SPECIAL *********************
+.clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+// *************** LAYOUT **********************
+.bg-header {
+    //background-color: $white;
+    background-color: $lBlue;
+    color: $dGrey;
+    border-bottom: 1rem solid $mBlue;
+    border-top: 1rem solid $dBlue;
+    position: relative;
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        width: 30%;
+        height: 1rem;
+        background-color: $dBlue;
+    }
+    &:before {
+        left: 0;
+    }
+    &:after {
+        right: 0;
+    }
+}
+
+.bg-focal {
+    background-color: $lBrown;
+    color: $dBrown;
+}
+
+.bg-content1 {
+    background-color: $white;
+    color: $dGrey;
+}
+
+.bg-content2 {
+    background-color: $lBlue;
+    color: $dBlue;
+}
+
+.bg-footer {
+    background-color: $white;
+    color: $lGrey;
+}
+
+header {
+    //width: 400px;
+    // default 
+    // margin: 0 auto;
+    position: relative;
+    h1 {
+        //   width: 100%;
+        padding: 0 2rem;
+    }
+    h1,
+    nav,
+    nav>ul li {
+        width: 100%;
+    }
+    nav>ul li {
+        // width: 100%;
+        float: none;
+    }
+}
+
+header,
+section.focal {
+    width: 400px;
+    // default  
+    margin: 0 auto;
+}
+
+.row {
+    clear: both;
+}
+
+.col-2 {
+    width: 50%;
+    float: left;
+    padding-bottom: 2rem;
+    border-left: 1px solid $dBlue;
+    margin-bottom: 2rem;
+}
+
+footer .col-2:first-child {
+    border-left: 0;
+}
+
+section.content1,
+section.content2,
+footer {
+    padding: 2rem 0;
+}
+
+//footer p:last-child {}
+// ************* NAVIGATION ******************
+header {
+    nav {
+        padding: 2rem 0;
+        clear: both;
+    }
+    nav>ul>li>a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: $dGrey;
+        font-size: 1.414rem;
+        letter-spacing: 0.25rem;
+        border: 1px solid $lGrey;
+        border-bottom: none;
+        padding: 1.0rem 2rem;
+        line-height: 1;
+        background-color: $white;
+    }
+    nav>ul>li>a:hover {
+        font-weight: 700;
+        color: $dBrown;
+    }
+}
+
+// ************** CONTENT ********************
+header {
+    h1 {
+        color: $dBrown;
+        letter-spacing: 0.1rem;
+    }
+    h1 i.fa-lg {
+        display: block;
+        width: 25%;
+        float: left;
+        font-size: 7rem;
+        line-height: 12.7936rem;
+        color: $lBrown;
+    }
+    h1 i.fa-lg ~ span {
+        float: right;
+        width: 75%;
+        font-size: 3.998rem;
+        // 2 lines of 3.998 * 1.6 = 12.7936
+        padding-left: 1rem;
+        text-align: right;
+    }
+}
+
+.focal {
+    h2 {
+        font-size: 1.999rem;
+        line-height: 1.2;
+        padding: 2rem 2rem 1rem 2rem;
+    }
+    .author {
+        font-size: 1rem;
+        padding: 0.2rem 2rem 2rem;
+    }
+}
+
+.content1 {
+    h3 {
+        font-size: 1.999rem;
+        padding: 0.2rem 2rem 2rem;
+        i {
+            vertical-align: middle;
+            padding-right: 2rem;
+        }
+    }
+    p {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem 2rem;
+    }
+}
+
+.content2 {
+    // not used h3 { font-size: 1.999rem;   padding: 1rem 2rem 0.5rem;}
+    h4 {
+        font-size: 1.999rem;
+        padding: 1rem 2rem 0rem;
+    }
+    p {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem 1rem;
+    }
+    li {
+        padding: 0.5rem 2rem;
+        font-size: 1.414rem;
+    }
+}
+
+// ***************** FOOTER *******************
+footer {
+    h4 {
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem;
+        color: $dBrown;
+    }
+    p {
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+        // color: $dGrey;
+    }
+    .fa-circle,
+    p {
+        color: $dGrey;
+    }
+    h4[lang=de] {
+        display: block;
+    }
+    h4[lang=en],
+    h4[lang=ar],
+    h4[lang=ru] {
+        display: none;
+    }
+}
+
+// ************* MEDIA QUERIES ************
+@import "queries";
